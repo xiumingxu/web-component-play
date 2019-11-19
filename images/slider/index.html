@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slider</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+
+        }
+        #sliders{
+            width: 1200px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+
+        }
+       #control-index{
+           position: absolute;
+           bottom: 10px;
+           left:40%;
+           display: flex;
+           width: 200px;
+       }
+       .control{
+           height:5px;
+           width: 60px;
+           background:red;
+           margin: 0 5px;
+           border: 2px red;
+           border-radius: 20%;
+       }
+       .handle{
+           z-index: 100;
+           height: 100px;
+           width: 50px;
+           background:rgb(179, 218, 179);
+           position: absolute;
+           top: 150px;
+       }
+
+       .handle-left{
+           left:0;
+       }
+       .handle-right{
+           right:0;
+       }
+       .handle::after{
+        content: '';
+        position: absolute;
+        top: 35%;
+        width: 0;
+        height: 0;
+        /* border-left: 20px solid #e8e8e8; */
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent; 
+           
+       }
+       .handle-left::after{
+          left: 30%;
+          border-right: 15px solid #e8e8e8;
+       }
+       .handle-right::after{
+          right: 30%;
+          border-left: 15px solid #e8e8e8;
+       }
+
+       ul.showbox{
+          margin-left:-700px; 
+          left: 50%;
+          position: absolute;
+
+       }
+       li{
+           display: inline-block;
+           transition: all 0.3s ease-out;
+           list-style: none;
+           height: 300px;
+           width: 330px;
+           overflow: hidden;
+           border: #e8e8e8;
+           /* the absolute here work together with the translate3d */
+           position: absolute;
+       }
+       li img{
+           float: left;
+           width: 100%;
+           position: absolute;
+           top:-10%;
+           /* height: 100%; */
+           /* animaiton: here */
+       }
+       .p7{
+        transform:translate3d(-100px,0,0) scale(0.4);
+        opacity: 0;;
+        transform-origin:30% 80%;
+         z-index: 0;
+	}
+
+       .p1{
+         transform:translate3d(100px,0,0) scale(0.6);
+        opacity: 0.5;;
+        transform-origin:30% 80%;
+        z-index: 0;
+       }
+
+      .p2{
+         transform:translate3d(300px,0,0) scale(0.81);
+        /* 
+            The transform-origin property allows you to change the position of transformed elements.
+            2D transformations can change the x- and y-axis of an element. 
+            3D transformations can also change the z-axis of an element. 
+        */
+		 transform-origin:0 80%;
+		 opacity: 0.8;
+		 z-index: 2;
+    }
+    
+    .p3{
+		transform:translate3d(500px,0,0) scale(1);
+		z-index: 3;
+		opacity: 1;
+    }
+
+    .p4{
+		transform:translate3d(700px,0,0) scale(0.81);
+		transform-origin:100% 80%;
+		opacity: 0.8;
+		z-index: 2;
+    }
+
+    .p5{
+        transform:translate3d(900px,0,0) scale(0.6);
+        transform-origin:70% 80%;
+        opacity: 0.5;;
+        z-index: 0;
+
+    }
+    .p6{
+        transform:translate3d(1100px,0,0) scale(0.4);
+        opacity: 0;;
+        transform-origin:30% 80%;
+         z-index: 0;
+	}
+	
+
+    </style>
+</head>
+<body>
+    <!-- // fade in and out  -->
+    <div id="sliders">
+        <ul class="showbox">
+            <li class="p1"><img/></li>
+            <li class="p2"><img/></li>
+            <li class="p3"><img/></li>
+            <li class="p4"><img/></li>
+            <li class="p5"><img/></li>
+            <li class="p6"><img/></li>
+            <li class="p7"><img/></li>
+        </ul>
+        <div class="handle handle-left"></div>
+        <div class="handle handle-right"></div>
+        <!-- <div id="control-index"></div> -->
+    </div>
+    
+    
+</body>
+<script src="script.js"></script>
+</html>
