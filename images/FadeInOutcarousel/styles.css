@@ -1,0 +1,67 @@
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(228, 255, 228, 0.516);
+}
+.fade-carousel {
+	border-radius: 20px;
+	overflow: hidden;
+	width: 800px;
+	height: 400px;
+	position: relative;
+}
+ul {
+	width: inherit;
+	height: inherit;
+	-webkit-padding-start: 0;
+	margin-block-start: 0;
+	margin-block-end: 0;
+	list-style: none;
+}
+li {
+	width: inherit;
+	height: inherit;
+	background: black;
+	position: absolute;
+	overflow: hidden;
+}
+li img {
+	width: 100%;
+	position: absolute;
+	top: -10%;
+}
+
+.controls {
+	width: inherit;
+	height: 10px;
+	position: absolute;
+	bottom: 30px;
+	display: flex;
+	justify-content: center;
+}
+.knob {
+	width: 20px;
+	height: 20px;
+	background: grey;
+	margin: 0 10px;
+	border-radius: 50%;
+	opacity: 0.5;
+	transition: all 0.2s;
+}
+
+.p0,
+.p1 {
+	opacity: 0;
+	transition: 0.3s all;
+}
+.p1 {
+	opacity: 1;
+}
+
+.clicked {
+	background: rgb(204, 255, 204);
+	opacity: 1;
+}
