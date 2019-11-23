@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Subtitle</title>
+    <style>
+        #video-section{
+            position: relative;
+            display: flex;
+
+            justify-content: center;
+        }
+        #subtitle{
+            position: absolute;
+            bottom: 40px;
+            height: 50px;
+            width: auto;
+            background: rgba(0,0,0, 0.6);
+            color:white;
+            
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="video-section">
+        <video id="video-player" width="800"  controls>
+            <!-- <source src="https://youtu.be/V8_wEZD160g"> -->
+            <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+        </video>
+        <div id="subtitle"></div>
+    </div>
+    
+</body>
+<script>
+    // start, end, content : intervals maximum 0.2s
+    const captions = {
+        0: "hehe",
+        1000: "aa",
+        2000: "ok",
+        3000: "",
+    };
+    const startTimeArray = Object.keys(captions);
+    const subtitle = document.getElementById("subtitle");
+    subtitle.setAttribute("draggable", true);
+    subtitle.innerHTML ="placeholder";
+    const video = document.getElementById("video-player");
+    video.addEventListener("timeupdate", function(e){
+        const currentTime = Math.floor(e.target.currentTime * 1000);
+        // the closes in array
+        console.log("currentTime", currentTime);
+        const cloesetTime = findClosest(currentTime, startTimeArray);
+        console.log("cloese", cloesetTime);
+        subtitle.innerHTML = captions[cloesetTime];
+    });
+    
+    function findClosest(target, arr){
+        console.log("target", target);
+        let start=0, end = arr.length-1;
+        while(start + 1 < end){
+            let mid = Math.floor((start + end) / 2);
+            if(arr[mid] === target)
+                return target;
+            else if (arr[mid] > target)
+                end = mid;
+            else 
+                start  = mid;
+        }
+        if(Math.abs(arr[start] - target) < Math.abs(arr[end] - target))
+            return arr[start];
+        else 
+            return arr[end];
+    }
+</script>
+</html>
