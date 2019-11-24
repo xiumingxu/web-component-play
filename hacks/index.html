@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="styles.css">
+        <title>Hacks</title>
+        <style>
+            #checkbox-adv{
+                display: none;
+            }
+             .checkbox input:checked + label{
+                background:url("./iconchecked.jpg");
+                 background-size: 27px 25px;
+               /* background-position: 0px 0px; */
+               background-repeat: no-repeat;
+            }
+            .checkbox input + label{
+               background:url("./iconunchecked.jpg");
+               background-size: 20px 20px;
+               /* background-position: 0px -1px; */
+               background-repeat: no-repeat;
+               padding-left: 25px;
+               height: 30px;
+
+               padding-bottom: 4px;
+            }
+            .container{
+                width: 100%;
+                background: yellow;
+                /*  have to set a height */
+                height: 200px;
+            }
+            .clearfix::after{
+                content:"";
+                clear: both;
+            }
+           .left{
+               width: 30%;
+               background: green;
+               float: left;
+               height:100%;
+           }
+           .right{
+               float: right;
+               /* margin-left:30%; */
+               /* padding-left: 10%; */
+               width: 30%;
+               height: 100%;
+               background: blue;
+               /* word-break: break-all; */
+               /* overflow: hidden; */
+           }
+           .middle{
+               background: black;
+               color:white;
+               height:100%;
+               margin-left:30%;
+               margin-right:30%;
+               padding-left: 10%;
+           }
+           .container3{
+               font-size:0px
+           }
+           .inline-block{
+               font-size:10px;
+               display: inline-block;
+               height: 100px;
+               width: 100px;
+           }
+           .red{
+               background: red;
+           }
+           .green{
+               background: green;
+           }
+        </style>
+    </head>
+    <body>
+        <!-- only id is okay -->
+        <div class="checkbox">
+            <input type="checkbox" id="checkbox-adv" />
+            <label for="checkbox-adv"> checkbox-adv</label>
+        </div>
+
+        <!-- <layout -->
+        <div class="container clearfix">
+            <div class="left"> c1</div>
+
+            <div class="right">
+                <span>
+                    c2:
+                    vwerewrhowerijweojriwejorj
+                    weojrewjrjowejrowejrjwerjeworj
+                    weojrowejnkl jdfnksnfdkjsjfj
+                    vwerewrhowerijweojriwejorj
+                    weojrewjrjowejrowejrjwerjeworj
+                    weojrowejnkl jdfnksnfdkjsjfj
+                    vwerewrhowerijweojriwejorj
+                    weojrewjrjowejrowejrjwerjeworj
+                    weojrowejnkl jdfnksnfdkjsjfj
+                    vwerewrhowerijweojriwejorj
+                    weojrewjrjowejrowejrjwerjeworj
+                    weojrowejnkl jdfnksnfdkjsjfj
+                    vwerewrhowerijweojriwejorj
+                    weojrewjrjowejrowejrjwerjeworj
+                    weojrowejnkl jdfnksnfdkjsjfj
+                </span>
+            </div>
+            <div class="middle">middle</div>
+        </div>
+
+        <div class="container3">
+            <div class="inline-block red">something</div><!--
+            --><div
+                class="inline-block
+                green">something</div>
+
+        </div>
+
+        <div class="container3">
+            <div class="inline-block red">something</div>
+            <!--
+                    -->
+            <div class="inline-block
+                green">something</div>
+
+        </div>
+
+
+
+    </body>
+    <script src="script.js"></script>
+</html>
