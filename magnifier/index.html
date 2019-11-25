@@ -1,15 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles.css">
-    <title>Template</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="styles.css">
+        <title>Magnifier</title>
+        <style>
+            .thumb{
+                font-size: 0px;
+                width: 350px;
+                height: auto;
+                position: relative;
+                display: block;
+                overflow: hidden;
+                /* vertical-align: top; */
+            }
+            .thumb:hover{
+                cursor:crosshair;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            .hover-frame{
+                width: 100px;
+                height: 80px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: black;
+                opacity: 0.6;
+                display: none;
+            }
+            #large-box{
+                display: inline-block;
+                /* display: none; */
+                width: 500px;
+                height: 300px;
+                overflow: hidden;
+                background: rebeccapurple;
+                border: 2px black;
+                /* float:right; */
+            }
+            #origianl-size{
+                width: 800px;
+                height: auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="thumb">
+            <img src="imgs/flower.jpeg" />
+            <div class="hover-frame"></div>
+        </div>
+        <div id="large-box">
+            <div id="origianl-size">
+                <img src="imgs/flower.jpeg" />
+            </div>
+        </div>
+
+    </body>
+    <script>
+        let hoverFrame = document.getElementsByClassName("hover-frame")[0];
+        let thumb = document.getElementsByClassName("thumb")[0];
+        let largeBox = document.getElementById("large-box");
+        var show = function(e, something){
+            something.style.display =  "block";
+        }
+        var hide = function (something) {
+            something.style.display = "none";
+        }
+        thumb.addEventListener("mousemove", (e)=>{
+            show(e, hoverFrame)
+            show(e, largeBox)});
+        thumb.addEventListener("mouseout", ()=>{ 
+            hide(hoverFrame)
+            hide(largeBox);
+        });
+        // mouse move
+        thumb.onmousemove = function(e){
+            let x = e.clientX;
+            let y = e.clientY;
+            // something.style.left = (x - something.style.width / 2) + "px";
+            something.style.left = (x - 50) + "px";
+            something.style.top = (y - 40) + "px";
+            // something.style.top = (y - something.style.height / 2) + "px";
+            console.log("test");
+        }
+        
     
-    
-</body>
-<script src="script.js"></script>
+    </script>
+    <script src="script.js"></script>
 </html>

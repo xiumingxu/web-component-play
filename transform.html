@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Transform</title>
+        <style>
+            .container{
+                position: relative;
+                top: 100px;
+                left: 200px;
+                border: 2px solid black;
+                width: 300px;
+                perspective: 500px;
+                transform: scale(0.4);
+               
+            }
+            
+            #cube {
+                width: 300px;
+                height: 300px;
+
+                /* 透视 */
+                transform-style: preserve-3d;
+                transition: transform 0.2s ease-in;
+            
+              
+            }
+            #cube:hover{
+                transform: rotateX(125deg) rotateY(125deg);
+            }
+            #cube div{
+                font-size: 32px;
+                width: 300px;
+                height: 300px;
+                text-align: center;
+                /* vertical-align: middle; */
+                line-height: 300px;
+                position: absolute;
+            }
+            .front{
+                background: rgba(174, 194, 42, 0.2);
+                /* z:200 is the full screen */
+                /* The closer the smaller -> the farther the bigger */
+                transform: translateZ(150px);
+            } 
+            .back{
+                background: rgba(223, 15, 116, 0.2);
+                transform: translateZ(-150px) rotateY(180deg);
+            }
+            .left{
+                background: rgba(0, 255, 229, 0.3);
+                transform:translateX(-150px) rotateY(-90deg)  ;
+            }
+            .right{
+                background: rgba(0, 255, 145, 0.3);
+                transform:translateX(150px) rotateY(90deg)  ;
+            }
+            .bottom{
+                background: rgba(106, 0, 255, 0.3);
+                transform:translateY(150px) rotateX(-90deg)  ;
+            }
+            .top{
+                background: rgba(255, 183, 0, 0.3);
+                transform:translateY(-150px) rotateX(90deg)  ;
+            }
+           
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="cube">
+                <div class="front"> 1 </div>
+                <div class="back"> 2 </div>
+                <div class="left"> 3 </div>
+                <div class="right"> 4 </div>
+                <div class="top"> 5 </div>
+                <div class="bottom"> 6 </div>
+            </div>
+        </div>
+
+
+    </body>
+
+</html>
