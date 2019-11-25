@@ -1,0 +1,88 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+.container {
+	width: 100%;
+	height: 100%;
+}
+.container > div {
+	width: 30%;
+	height: 500px;
+	background: #eee;
+}
+.clearfix {
+	clear: both;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+div .middle {
+	text-align: center;
+	width: 30%;
+
+	text-align: center;
+	line-height: 100%;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+
+.photo {
+	width: 260px;
+	height: 320px;
+	position: absolute;
+	z-index: 1;
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+	top: 0;
+	left: 0;
+
+	margin: 0 auto;
+}
+.photo .side {
+	width: 100%;
+	height: 100%;
+	background-color: #eee;
+	position: absolute;
+	/* // make the box include padding and border */
+	box-sizing: border-box;
+	/* border: 20px solid #eee; */
+	padding: 25px;
+
+	top: 0;
+	left: 0;
+}
+.photo .side .image {
+	width: 100%;
+	height: 250px;
+	line-height: 250px;
+
+	/* z-index: 3; */
+	overflow: hidden;
+}
+.photo .side-front .image img {
+	width: 100%;
+	/* vertical-align: middle; */
+}
+.photo .side-front .caption {
+	width: 100%;
+	line-height: 30px;
+	text-align: center;
+	font-size: 12px;
+}
+.photo .side-back {
+	display: none;
+}
+
+.photo-center {
+	/* 水平垂直居中 */
+	width: 260px;
+	height: 320px;
+	top: 50%;
+	left: 50%;
+	margin: -160px 0 0 -130px;
+	z-index: 999;
+}
