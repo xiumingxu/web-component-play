@@ -43,23 +43,34 @@ function centerImg (num) {
 	// let num = random(0, 19);
 	var str = "#photo_" + num;
 	var photo = s(str);
-	console.log(photo);
+	photo.removeAttribute("style");
 	photo.className += " photo-center";
 }
 
-let poster = s("#poster");
-let photos = s(".photo");
-let photoArray = Array.from(photos);
-let photoConfig = {
-	w : photos[0].clientWidth,
-	h : photos[0].clientHeight
-};
-let posterConfig = {
-	w : poster.clientWidth,
-	h : poster.clientHeight
-};
+var preCenter;
+let photoArray;
 
 function scatterPhotos (centerId) {
+	let poster = s("#poster");
+
+	let photos = s(".photo");
+	console.log(photos.length);
+	photoArray = Array.from(photos);
+	let photoConfig = {
+		w : photos[0].clientWidth,
+		h : photos[0].clientHeight
+	};
+	let posterConfig = {
+		w : poster.clientWidth,
+		h : poster.clientHeight
+	};
+
+	// remove previous centerID
+	preCenter = photoArray.filter((p) => /photo-center/.test(p.className));
+	preCenter.forEach((p) => {
+		p.className = p.className.replace(/photo-center/g, "");
+	});
+
 	centerId = "photo_" + centerId;
 	let leftXRange = [ 0 - photoConfig.w / 2, posterConfig.w / 2 - photoConfig.w ];
 	let YRange = [ 0 - photoConfig.h / 2, posterConfig.h - photoConfig.h / 2 ];
@@ -68,7 +79,7 @@ function scatterPhotos (centerId) {
 	let left = [];
 	let right = [];
 
-	const photoCenter = (photoArray = photoArray.filter((p) => p.id != centerId));
+	photoArray = photoArray.filter((p) => p.id != centerId);
 	let photosLeft = photoArray.splice(0, Math.floor(photoArray.length / 2));
 	let photosRight = photoArray;
 
@@ -85,10 +96,6 @@ function scatterPhotos (centerId) {
 	});
 }
 
-let centerImgNo = random(0, count);
-scatterPhotos(centerImgNo);
-centerImg(centerImgNo);
-
 function s (selector) {
 	let method;
 	if (selector.startsWith(".")) {
@@ -99,3 +106,11 @@ function s (selector) {
 	}
 	return document[method](selector.substring(1));
 }
+
+document.body.onclick = () => {
+	let centerImgNo = random(0, count);
+
+	scatterPhotos(centerImgNo);
+	centerImg(centerImgNo);
+	return undefined;
+};
