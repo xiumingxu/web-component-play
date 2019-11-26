@@ -8,23 +8,31 @@
         <title>Gallery</title>
     </head>
     <body>
-        <div class="container clearfix">
-            <div class="left"></div>
-            <div class="right"></div>
-            <div class="middle">
-                <div class="photo photo-center">
-                    <div class="side side-front">
-                        <p class="image">
-                            <img src="__/image1.jpg" />
-                        </p>
-                        <p class="caption">There is something</p>
+        <div class="container">
+
+            <div id="poster">
+                <div class="photo photo-front"
+                    id="photo_{{index}}" onclick="turn(this)">
+                    <div class="photo-rotate-wrap">
+                        <div class="side side-front">
+                            <p class="image">
+                                <img src="__/image{{index}}.jpg" />
+                            </p>
+                            <div class="caption">
+                                <p>{{quote}}</p>
+                            </div>
+                        </div>
+
+                        <div class="side side-back">
+                            {{index}}
+                        </div>
                     </div>
-
-                    <div class="side side-back"></div>
                 </div>
-                <div class="controls"></div>
             </div>
+            <div class="controls"></div>
+        </div>
 
-        </body>
-        <script src="script.js"></script>
-    </html>
+    </body>
+    <script type="text/javascript" src="data.js"></script>
+    <script src="script.js"></script>
+</html>
