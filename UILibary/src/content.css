@@ -1,0 +1,104 @@
+/* 内容区 */
+.xx-content {
+	/* 伪类正确处理后面的 padding */
+	box-sizing: border-box;
+	/* why relax: 让子元素在做绝对定位的时候以它为参考系 */
+	position: relative;
+	/* 自动出现滚动条 */
+	overflow-y: auto;
+}
+
+/* 根据header和navbar自动适应内容区高度 */
+.xx-header ~ .xx-content {
+	padding-top: 2.3rem;
+}
+
+.xx-navbar ~ .xx-content {
+	padding-bottom: 2.5rem;
+}
+
+.xx-content .xx-panel-title {
+	height: 1.8rem;
+	line-height: 1.8rem;
+	padding-left: 1rem;
+	color: #aaa;
+	background: #fff;
+	border-top: 1px solid #eee;
+	font-size: 14px;
+	font-weight: normal;
+}
+.xx-content .xx-panel-body {
+	position: relative;
+	margin-bottom: .6rem;
+	padding: .6rem 1rem;
+	background: #fff;
+	overflow: hidden;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+
+.xx-content .xx-panel-body.no-padding {
+	padding: 0;
+}
+.xx-content .xx-panel-body .xx-form-item {
+	height: 2rem;
+	line-height: 2rem;
+	/* vertical-align: ; */
+	display: flex;
+	position: relative;
+	font-size: 0.8em;
+	border-bottom: 1px solid #eee;
+}
+/* 去掉最后一行的下边框 */
+.xx-form-item:last-child {
+	border-bottom: none;
+}
+
+.xx-content .xx-panel-body .xx-form-item > .xx-form-label {
+	padding-left: 1rem;
+	display: block;
+	color: #aaaaaa;
+	flex-basis: 20%;
+}
+
+.xx-content .xx-panel-body .xx-form-item .xx-form-body {
+	flex: 1;
+	padding-right: 1rem;
+}
+.xx-content .xx-panel-body .xx-form-item .xx-input {
+	padding-right: 3rem;
+	width: 100%;
+	color: #7c7c7c;
+	/* have to confirm here again */
+	font-size: .8rem;
+	border: none;
+}
+/* 表单中的清空按钮 */
+.xx-form-item > .xx-form-body > .xx-input-reset {
+	position: absolute;
+	width: .8rem;
+	height: .8rem;
+	line-height: .8rem;
+	top: 50%;
+	margin-top: -.4rem;
+	right: 1rem;
+	font-size: .6rem;
+	background: #aaa;
+	color: #fff;
+	border-radius: 50%;
+}
+
+/* 表单中的错误提示按钮 */
+.xx-form-item > .xx-form-body > .xx-input-warning {
+	position: absolute;
+	width: .8rem;
+	height: .8rem;
+	line-height: .8rem;
+	top: 50%;
+	margin-top: -.4rem;
+	right: 1rem;
+	font-size: .6rem;
+	border-radius: 50%;
+	color: red;
+	border: 1px solid red;
+}

@@ -1,0 +1,18 @@
+/*
+ * @Author: xiuming.x 
+ * @Date: 2019-11-28 11:28:22 
+ * @Last Modified by: xiuming.x
+ * @Last Modified time: 2019-11-28 12:59:28
+ */
+/* 字体图标引入 */
+@import '//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
+.fa {
+	display: inline-block;
+	text-align: center;
+}
+.fa-code {
+	color: red;
+}
+.fa-infor {
+}

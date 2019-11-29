@@ -1,0 +1,35 @@
+/* 头部导航条 */
+.xx-header {
+	position: fixed;
+	/* borderbox在这里出现 */
+	box-sizing: border-box;
+	width: 100%;
+	/* max width 也要指定 否则就是屏幕的大小的  */
+	max-width: 640px;
+	height: 2.3rem;
+	top: 0;
+	z-index: 301;
+	border-bottom: 1px solid #ddd;
+	display: flex;
+	line-height: 2.3rem;
+	text-align: center;
+	background: #f8f8f8;
+}
+
+.xx-header > .left {
+	flex-basis: 3rem;
+	text-align: center;
+	flex-shrink: 0;
+}
+.xx-header > .title {
+	flex-grow: 1;
+	/* 超长文本截断 */
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.xx-header > .righht {
+	text-align: center;
+	flex-shrink: 0;
+}

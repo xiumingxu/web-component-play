@@ -1,0 +1,112 @@
+/*
+ * @Author: xiuming.x 
+ * @Date: 2019-11-28 15:04:40 
+ * @Last Modified by: xiuming.x
+ * @Last Modified time: 2019-11-28 15:31:47
+ */
+
+/* 搜索框 */
+.xx-search {
+	max-width: 640px;
+	margin: 0 auto;
+	background: #f8f8f8;
+}
+
+/* 搜索状态中，覆盖内容区 */
+.xx-search.on-focus {
+	/* //fix解决遮盖问题 */
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	overflow-y: auto;
+}
+
+/* 处理有标题栏的情况 */
+.xx-header ~ .xx-content .xx-search.on-focus {
+	top: 2.3rem;
+}
+/* 处理有导航栏的情况 */
+.xx-navbar ~ .xx-content .xx-search.on-focus {
+	bottom: 2.5rem;
+}
+/* ////////////////// */
+/* 搜索栏中的表单 */
+.xx-search > .xx-search-form {
+	display: flex;
+	height: 2.3rem;
+	align-items: center;
+}
+/* 输入框的容器 */
+.xx-search > .xx-search-form > .xx-search-input-wrap {
+	flex: 1;
+	position: relative;
+	padding: 0 .5rem;
+}
+/* 取消按钮 */
+.xx-search > .xx-search-form > .xx-search-cancel {
+	flex: 0 0 2.2rem;
+	padding-right: .5rem;
+	text-align: center;
+	font-size: .7rem;
+	/* display: none; */
+}
+/* 对取消按钮的控制 */
+.xx-search.on-focus > .xx-search-form > .xx-search-cancel {
+	display: block;
+}
+/* 搜索图标 */
+.xx-search .xx-search-icon {
+	position: absolute;
+	height: .8rem;
+	line-height: .8rem;
+	font-size: .7rem;
+	left: 1rem;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	color: #ccc;
+}
+
+/* 输入框的样式 */
+.xx-search .xx-search-input {
+	box-sizing: border-box;
+	width: 100%;
+	height: 1.6rem;
+	border: none;
+	font-size: .8rem;
+	padding-left: 1.5rem;
+	background: #fff;
+	border-radius: .2rem;
+}
+
+/* 清空按钮的样式 */
+.xx-search .xx-search-clear {
+	position: absolute;
+	height: .8rem;
+	line-height: .8rem;
+	width: .8rem;
+	font-size: .6rem;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	right: 1rem;
+	border-radius: 50%;
+	color: #fff;
+	background: #ccc;
+	display: none;
+}
+
+/* 对清空按钮的控制 */
+.xx-search.on-focus .xx-search-input:valid + .xx-search-clear {
+	display: block;
+}
+
+.xx-search .xx-search-suggest > .xx-suggest-item {
+	border: 1px solid #eee;
+}
+
+.xx-search .xx-search-suggest:last-child {
+	border: none;
+}

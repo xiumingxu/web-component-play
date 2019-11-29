@@ -1,0 +1,45 @@
+/*
+ * @Author: xiuming.x 
+ * @Date: 2019-11-28 12:09:29 
+ * @Last Modified by: xiuming.x
+ * @Last Modified time: 2019-11-28 13:43:25
+ */
+
+/* 底部导航栏 */
+.xx-navbar {
+	position: fixed;
+	box-sizing: border-box;
+	bottom: 0;
+	/* 两个一起 width 100% and max-width: ; */
+	width: 100%;
+	max-width: 640px;
+	height: 2.5rem;
+	border-top: 1px solid #ddd;
+	z-index: 200;
+	/* flexbox */
+	display: flex;
+	text-align: center;
+	background: #f8f8f8;
+	/* align-items: center;*/
+	/* justify-content: space-evenly; */
+}
+
+.xx-navbar > .navbar-item {
+	/* 每个导航区域会评分导航条 */
+	flex: 1;
+	color: #808080;
+}
+/* 交叉选择 */
+.xx-navbar > .navbar-item.active {
+	color: #09bb07;
+}
+/* 导航图标 */
+.xx-navbar > .navbar-item > .icon {
+	padding: .3rem 0 .1rem;
+	font-size: 1.1rem;
+}
+/* 导航名称 */
+.xx-navbar > .navbar-item > .name {
+	display: block;
+	font-size: .5rem;
+}
