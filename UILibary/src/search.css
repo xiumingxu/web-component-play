@@ -2,7 +2,7 @@
  * @Author: xiuming.x 
  * @Date: 2019-11-28 15:04:40 
  * @Last Modified by: xiuming.x
- * @Last Modified time: 2019-11-28 15:31:47
+ * @Last Modified time: 2019-11-29 14:46:46
  */
 
 /* 搜索框 */
@@ -104,7 +104,18 @@
 }
 
 .xx-search .xx-search-suggest > .xx-suggest-item {
-	border: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	background: white;
+	padding-left: 20px;
+	font-size: .8rem;
+	height: 2rem;
+	line-height: 2rem;
+}
+.xx-search .xx-search-suggest > .xx-suggest-item {
+	display: none;
+}
+.xx-search.on-focus .xx-search-suggest > .xx-suggest-item {
+	display: block;
 }
 
 .xx-search .xx-search-suggest:last-child {

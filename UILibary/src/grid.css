@@ -1,0 +1,54 @@
+.xx-grid {
+	/* width: 100%; */
+	/* height: auto; */
+	display: flex;
+	flex-wrap: wrap;
+}
+.xx-grid > .xx-grid-item {
+	/* flex-basis: 33%; */
+
+	flex: 0 1 33%;
+	/* margin: 0 auto; */
+	box-sizing: border-box;
+	padding: 2rem 0;
+
+	border-bottom: 1px solid #eee;
+	border-right: 1px solid #eee;
+}
+.xx-grid > .xx-grid-item:nth-child(3n) {
+	border-right: none;
+}
+
+.xx-grid-item .item-content-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.item-content-wrap > .item-label {
+	padding: 10px 0;
+	font-size: 0.9rem;
+	color: #333;
+}
+.item-content-wrap > .item-icon {
+	font-size: 1.8rem;
+	color: #aaa;
+}
+
+/* 四列网格 */
+.xx-grid.xx-grid-4 .xx-grid-item {
+	border-right: 1px solid #ddd;
+	flex-basis: 25%;
+	padding: .9rem 0;
+}
+.xx-grid.xx-grid-4 .xx-grid-item:nth-child(4n) {
+	border-right: none;
+}
+/* 五列网格 */
+.xx-grid.xx-grid-5 .xx-grid-item {
+	border-right: 1px solid #ddd;
+	flex-basis: 20%;
+	padding: .6rem 0;
+}
+.xx-grid.xx-grid-5 .xx-grid-item:nth-child(5n) {
+	border-right: none;
+}

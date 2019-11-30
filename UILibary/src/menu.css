@@ -1,0 +1,57 @@
+.xx-menu-item {
+	display: flex;
+	padding-left: 20px;
+	font-size: 1rem;
+	/* flex 里用不好使 line height */
+	/* line-height: 1.8rem;
+    height: 1.8rem; */
+	padding: 20px;
+	border-bottom: 1px solid #eee;
+}
+.xx-menu-item > .xx-menu-name {
+	flex: 1;
+	text-align: left;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.xx-menu-item > .xx-menu-value {
+	color: #aaa;
+	padding-left: 20px;
+}
+
+/* clean the default  */
+.xx-menu .xx-switch {
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+	width: 2.6rem;
+	height: 1.4rem;
+	background: #eee;
+	border-radius: 0.75rem;
+	border: 1px solid #ddd;
+	box-sizing: content-box;
+	position: relative;
+	transition: background-color 0.2s;
+	outline: 0;
+}
+.xx-menu .xx-switch::after {
+	position: absolute;
+	content: " ";
+	height: 1.4rem;
+	width: 1.4rem;
+	box-sizing: content-box;
+	top: 0;
+	left: 0px;
+	border-radius: 50%;
+	background: white;
+	transition: left 0.2s;
+	box-shadow: 0 0 2px #aaa;
+}
+.xx-menu .xx-switch:checked {
+	background: rgb(97, 244, 151);
+	border-color: rgb(97, 244, 151);
+}
+.xx-menu .xx-switch:checked::after {
+	left: 1.2rem;
+}
