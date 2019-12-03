@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            div{
+                background:green;
+                font-size:0px;
+            }
+            img{
+                display: inline-block;
+                width: 20%;
+            }
+            .clearfix::after{
+                content:"aaa";
+                font-size:100px;
+                clear:both;
+                display:block;
+                /* visibility: hidden; */
+
+
+            }
+            div > img:last-child{
+                float:left;
+                /* opacity: 0; */
+            }
+            /* div {
+                clear:both;
+            } */
+
+
+        </style>
+    </head>
+    <body>
+        <div class="clearfix">
+            <img src="./imgs/bubble.jpg" alt="">
+            <img src="./imgs/image72.jpg" alt="">
+            <img src="./imgs/image73.jpg" alt="">
+            <!-- <div class="clearfix"></div> -->
+        </div>
+
+    </body>
+</html>
