@@ -1,0 +1,39 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+.tab {
+	width: 400px;
+	height: 300px;
+}
+.tab > .tab-nav {
+	display: flex;
+}
+.tab > .tab-nav a {
+	width: 100%;
+}
+
+.tab-nav > .tab-nav-item {
+	border: 2px solid white;
+	width: 25%;
+
+	list-style-type: none;
+	background: green;
+	text-align: center;
+}
+.tab > .tab-content {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+.tab-content > img {
+	width: 100%;
+
+	position: absolute;
+	opacity: 0;
+}
+
+.tab .tab-content > img.active {
+	opacity: 1;
+}
