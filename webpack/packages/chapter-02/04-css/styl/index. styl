@@ -1,5 +1,0 @@
-$body-background = magenta
-
-body
-    background: $body-background
-
