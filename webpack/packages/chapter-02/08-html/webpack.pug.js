@@ -14,3 +14,4 @@ module.exports = {
         rules: [{test: /\.pug$/, loader: ['html-loader', 'pug-html-loader']}]
     }
 };
+
