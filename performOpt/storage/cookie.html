@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Cookie</title>
+    </head>
+    <body>
+
+    </body>
+    <script>
+        document.cookie="gender=male";
+        document.cookie="student=late";
+        console.log(document.cookie)
+
+        if(window.localStorage){
+            localStorage.setItem("student", "wo")
+            localStorage.setItem("gender", "male");
+
+            let name=localStorage.getItem("student");
+            let gender=localStorage.getItem("gender");
+        }
+    </script>
+    <script>
+        //截取 http 请求
+
+        var xmlhttprequest =  new XMLHttpRequest();
+
+        xmlhttprequest.onreadystatechange = callback;
+        xmlhttprequest.onprogress = progressCallback;
+
+        xmlhttprequest.open("GET", "./test.js", true);
+        xmlhttprequest.send();
+
+        function callback(){
+            if(xmlhttprequest.readyState === 4 && xmlhttprequest.status === 200){
+                let responseText= xmlhttprequest.responseText;
+                eval(responseText);
+                // js 文件被存取
+                localStorage.setItem("text", responseText)
+            }
+        }
+    </script>
+</html>

@@ -27,3 +27,8 @@ button {
 	left: 100px;
 	top: 100px;
 }
+
+#snakewrap div {
+	width: 20px;
+	height: 20px;
+}
