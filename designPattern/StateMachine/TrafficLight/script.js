@@ -2,20 +2,24 @@
 // let stateMachine = function () {};
 
 class State {
-	constructor (name, next, transitionFn) {
+	constructor (name, next, handle) {
 		this.cur = name;
 		// this.state = name;
 		this.next = next;
-		this.transitionFn = transitionFn;
+		this.handle = handle;
 	}
-	transitionTo () {
+	employ () {
 		let cur = document.getElementById('color-' + this.cur);
 		let next = document.getElementById('color-' + this.next);
 
 		cur.click();
-		this.transitionFn();
+		this.handle();
 		return this.next;
 	}
+	nextID () {}
+
+	changeState () {}
+
 	getState () {
 		return this.cur;
 	}
@@ -56,9 +60,10 @@ class TrafficLight {
 			this.setState();
 		}, 2000);
 	}
+	// transition
 	setState () {
 		// 应该有个 fire之类的
-		let nextID = this.state.transitionTo();
+		let nextID = this.state.employ();
 		console.log('next', nextID);
 
 		this.state = this.stateList.filter((state) => {

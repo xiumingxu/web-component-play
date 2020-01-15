@@ -1,4 +1,5 @@
 function deepClone (source) {
+	// 仅限于{}
 	if (typeof source !== 'object')
 		// shallow copy
 		return Object.assign({}, source);
