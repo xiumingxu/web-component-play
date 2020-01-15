@@ -21,7 +21,6 @@ var Publisher = (function () {
 	};
 })();
 
-
 // let cb1 = {
 // 	id     : 1,
 // 	update : function () {
