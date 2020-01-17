@@ -1,21 +1,13 @@
-function Animal (shape) {
-	this.shape = shape;
-	console.log('this is an animal');
-}
-Animal.prototype = {
-	eat : function () {
-		console.log('eat');
-	}
-};
-function Dog (shape) {
-	Animal.call(this, shape);
-	this.sound = 'wangwang';
-}
-Dog.prototype = new Animal();
+setTimeout((_) => console.log(4));
 
-//Dog.prototype =  Object.create(Animal.prototype);
-Dog.prototype.listen = function () {
-	console.log('listen');
-};
+let n = new Promise((resolve) => {
+	resolve();
+	console.log(1);
+}).then((_) => {
+	console.log(3);
+});
 
-let dog = new Dog('round');
+console.log(2);
+n.then(() => {
+	console.log('33');
+});
