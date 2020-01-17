@@ -1,7 +1,7 @@
-
 $blue: #056ef0;
 $column: 200px;
 
+/* 就是 sass.scss 的语法 还和 先来cssnext  在 precss有冲突*/
 .menu {
 	width: calc(4 * $column);
 }
@@ -14,13 +14,13 @@ $column: 200px;
 .notice--clear {
 	@if 3 < 5 {
 		background: green;
-	}
-	@else {
+	} @else {
 		background: blue;
 	}
 }
 
-
 @for $i from 1 to 3 {
-	.b-$i { width: $(i)px; }
+	.b-$i {
+		width: $(i)px;
+	}
 }
