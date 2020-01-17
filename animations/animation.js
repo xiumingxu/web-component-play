@@ -1,5 +1,6 @@
 'use strict';
 
+//定义的状态
 const STATE_INITIAL = 0;
 const STATE_START = 1;
 const STATE_STOP = 2;
@@ -12,10 +13,11 @@ let TASK_ASYNC = 1;
 let loadImage = require('./imgloader');
 let Timeline = require('./timeline').default;
 
-function Anim () {
+function Animation () {
 	this.taskQueue = [];
-	this.state = STATE_INITIAL;
 	this.index = 0;
+
+	this.state = STATE_INITIAL;
 	this.timeline = new Timeline();
 	// this.
 }
@@ -24,7 +26,7 @@ function Anim () {
  * 添加一个同步任务，去加载图片
  * @param imglist 是一个图片的地址 返回一个函数
  */
-Anim.prototype.loadImg = function (imglist) {
+Animation.prototype.loadImg = function (imglist) {
 	//一个同步任务
 	let taskFn = function (next) {
 		//数组的深拷贝
@@ -39,9 +41,9 @@ Anim.prototype.loadImg = function (imglist) {
  * @param callback 返回的一个任务
  * 咋的了
  */
-Anim.prototype.then = function (callback) {};
+Animation.prototype.then = function (callback) {};
 
-Anim.prototype.start = function (interval) {
+Animation.prototype.start = function (interval) {
 	if (this.state === STATE_START) return this;
 	// 如果任务链中没有任务,则返回
 	if (!this.taskQueue.length) {
@@ -69,7 +71,7 @@ function next (callback) {
  * @param imageUrl 图片地址
  */
 
-Anim.prototype.changePosition = function (ele, positions, imageUrl) {
+Animation.prototype.changePosition = function (ele, positions, imageUrl) {
 	var len = positions.length;
 	var taskFn;
 	var type;
@@ -104,29 +106,29 @@ Anim.prototype.changePosition = function (ele, positions, imageUrl) {
 };
 /** 
  * @param times reapt times
- * return a function!! the previous animation
+ * return a function!! the previous Animationation
 */
-Anim.prototype.repeat = function (times) {};
+Animation.prototype.repeat = function (times) {};
 
 /** 
  *  reapt（）无限循环
 */
-Anim.prototype.repeatForever = function (times) {};
+Animation.prototype.repeatForever = function (times) {};
 
 /** 
  * @param times reapt（）无限循环
 */
-Anim.prototype.wait = function (times) {};
+Animation.prototype.wait = function (times) {};
 
 /**
  * 暂停任务
  */
-Anim.prototype.pause = function (callback) {};
+Animation.prototype.pause = function (callback) {};
 
 /**
  * 重新执行上一次暂停的任务
  */
-Anim.prototype.restart = function () {};
+Animation.prototype.restart = function () {};
 
 /**
  * 私有方法:通过命名规范
@@ -134,7 +136,7 @@ Anim.prototype.restart = function () {};
  * @param {number} type 任务类型
  * @private
  */
-Anim.prototype._add = function (taskFn, type) {
+Animation.prototype._add = function (taskFn, type) {
 	this.taskQueue.push({
 		taskFn,
 		type
@@ -147,7 +149,7 @@ Anim.prototype._add = function (taskFn, type) {
  * 目的 执行任务
  * @private
  */
-Anim.prototype._runTask = function () {
+Animation.prototype._runTask = function () {
 	if (!this.taskQueue.length || this.state === STATE_START) return;
 	// 如果任务执行完毕,就要回收资源
 	if (this.index === this.taskQueue.length) {
@@ -165,14 +167,14 @@ Anim.prototype._runTask = function () {
 /**
  * 释放资源
  */
-Anim.prototype.dispose = function () {};
+Animation.prototype.dispose = function () {};
 
 /**
  * 同步任务
  * @param task 执行任务的函数
  * @private
  */
-Anim.prototype._syncTask = function (task) {
+Animation.prototype._syncTask = function (task) {
 	var me = this;
 	var next = function () {
 		//切换到下一个任务
@@ -187,7 +189,7 @@ Anim.prototype._syncTask = function (task) {
  * @param task 执行异步的函数
  * @private
  */
-Anim.prototype._asyncTask = function (task) {
+Animation.prototype._asyncTask = function (task) {
 	var me = this;
 	//定义每一帧执行的回调函数: time 从开始到现在的时间
 	var enterframe = function (time) {
@@ -206,7 +208,7 @@ Anim.prototype._asyncTask = function (task) {
 	this.timeline.start(this.interval);
 };
 
-Anim.prototype._next = function (task) {
+Animation.prototype._next = function (task) {
 	var me = this;
 	this.index++;
 	task.wait
@@ -217,7 +219,7 @@ Anim.prototype._next = function (task) {
 };
 
 // module.exports = function () {
-// 	new Anim();
+// 	new Animation();
 // };
 // 类似工程 模板
-export default new Anim();
+export default new Animation();
