@@ -1,0 +1,274 @@
+/* reset */
+* {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+}
+ul {
+	list-style: none;
+}
+header {
+	/* color: white !important; */
+	background: linear-gradient(to bottom, #3b2cac 0%, #631d9f 100%);
+}
+/* 链接到那个字 */
+header nav a {
+	color: white;
+}
+header nav a:hover {
+	color: orange;
+}
+header nav {
+	padding: 40px 50px 0px 50px;
+	margin-bottom: 30px;
+}
+.user {
+	float: right;
+
+	/* margin-right: 50px; */
+}
+
+header nav li {
+	display: inline-block;
+	/* min-width: 100px; */
+	padding-right: 40px;
+}
+
+header .headerMain {
+	padding: 0 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 150px;
+	color: white;
+}
+
+.banner {
+	/* position: relative; */
+	/* display: flex; */
+	text-align: center;
+
+	justify-content: space-evenly;
+	height: 150px;
+	align-items: center;
+
+	width: 80%;
+	/* left: 10%; */
+	/* transform: translateY(-50%); */
+	margin-top: -75px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+	background: white;
+	position: relative;
+	display: flex;
+	padding: 20px 0;
+
+	animation: fadeIn 0.3s;
+	animation-fill-mode: forwards;
+	/* animation */
+}
+.feature {
+	display: inline-block;
+	width: 30%;
+	height: 100px;
+	/* 这边还有 centr */
+	text-align: center;
+}
+.feature::before {
+	content: "";
+	display: block;
+	height: 80px;
+	width: 80px;
+	margin: 0 auto;
+	border-radius: 50%;
+	margin-bottom: 10px;
+	background: orange;
+}
+
+.image {
+	max-width: 60%;
+}
+img {
+	width: 100%;
+	object-fit: contain;
+}
+.intro {
+	margin: 100px auto;
+	width: 95%;
+	display: flex;
+	justify-content: space-evenly;
+	margin-bottom: 60px;
+}
+.intro * {
+	color: grey;
+}
+.intro h1 {
+	line-height: 4em;
+}
+.intro li {
+	line-height: 2em;
+}
+header nav {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+header .headerMain,
+section {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+@keyframes fadeIn {
+	from {
+		transform: translateY(50px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+.progress {
+	display: none;
+	width: 400px;
+	height: 15px;
+	position: fixed;
+	top: 10px;
+	/* left: calc(50% - 150px); */
+
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 15px;
+	background: red;
+	/* background-image: url('Artboard\ 2.png'); */
+	background-image: linear-gradient(135deg, red 0%, red 33%, orange 33%, orange 66%, red 66%, red 100%);
+	background-size: 30px 15px;
+	/* background-repeat: no-repeat; */
+	/* transition: width 600px 2s; */
+	animation: rolling 0.2s linear infinite;
+}
+
+.progress.show {
+	display: block;
+}
+
+@keyframes rolling {
+	from {
+		background-position: 0;
+	}
+	to {
+		background-position: 30px;
+	}
+}
+.dialog-wrapper {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+
+	/* transform-style: preserve-3d; */
+	perspective: 500px;
+}
+.dialog-wrapper.show {
+	display: block;
+}
+.mask {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+}
+.dialog {
+	transform-origin: 50% 50%;
+	width: 500px;
+	height: 350px;
+	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -250px;
+	margin-top: -200px;
+	background: white;
+
+	/* 3d */
+	transform-style: preserve-3d;
+}
+
+.dialog-wrapper.show .dialog {
+	animation: slideIn 0.3s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slideIn {
+	from {
+		transform: rotateX(-80deg);
+	}
+
+	80% {
+		transform: rotateX(20deg);
+	}
+	90% {
+		transform: rotateX(-8deg);
+	}
+
+	to {
+		transform: rotateX(0);
+	}
+}
+
+.dialog .title {
+	height: 50px;
+	line-height: 50px;
+	padding: 0 30px;
+}
+.dialog .body {
+	font-size: 16px;
+	width: 80%;
+	margin: 0 auto;
+	padding: 30px 80px;
+	display: flex;
+	align-items: center;
+}
+.dialog .body li {
+	list-style: none;
+	/* padding: 0 30px; */
+	height: 50px;
+	line-height: 50px;
+}
+.dialog .body label {
+	/* width: 150px; */
+	display: inline-block;
+	width: 100px;
+}
+.dialog .body input {
+	font-size: 16px;
+	border: 0;
+	border-bottom: 1px solid #ccc;
+	width: 200px;
+}
+.dialog .body input:focus {
+	outline: 0 none;
+}
+.dialog .body .operateWrapper {
+	padding-top: 30px;
+	font-size: 0;
+}
+.dialog .body button {
+	height: 40px;
+
+	text-align: center;
+	width: 120px;
+	font-size: 16px;
+	letter-spacing: 1em;
+	text-indent: 1em;
+	margin-right: 50px;
+	background: none;
+	outline: 0 none;
+}
+.dialog .body button.primary {
+}
+.dialog .body button:last-of-type {
+	margin-right: 0;
+	float: right;
+}

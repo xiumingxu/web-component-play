@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style2.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="user">
+                <a href="#" id="login">登录</a>
+            </div>
+            <ul class="nav-items">
+                <li><a href="#">CSS基础知识</a></li>
+                <li><a href="#">效果与动画</a></li>
+                <li><a href="#">工具与工程化</a></li>
+            </ul>
+        </nav>
+        <div class="headerMain">
+            <h1>全面深入讲解CSS</h1>
+            <ul>
+                <li>- 2017年末新课</li>
+                <li>- 2017年末新课</li>
+                <li>- 2017年末新课</li>
+                <li>- 2017年末新课</li>
+            </ul>
+        </div>
+    </header>
+    <section class="banner">
+        <div class="feature"> 特点 1 </div>
+        <div class="feature"> 特点 2 </div>
+        <div class="feature"> 特点 3 </div>
+    </section>
+    <section class="main">
+        <section class="intro">
+            <div class="image">
+                <img src="1.png"/>
+            </div>
+            <div class="desp">
+                <h1>知识全面讲解</h1>
+                <ul>
+                    <li>核心知识讲解</li>
+                    <li>核心知识讲解</li>
+                    <li>核心知识讲解</li>
+                    <li>核心知识讲解</li>
+                </ul>
+            </div>
+        </section>
+        <section class="intro">
+        <div class="desp">
+            <h1>知识全面讲解</h1>
+            <ul>
+                <li>- 核心知识讲解</li>
+                <li>- 核心知识讲解</li>
+                <li>- 核心知识讲解</li>
+            </ul>
+        </div>
+        <div class="image">
+            <img src="2.png">
+        </div>
+        </section>
+    </section>
+    <div class="progress"></div>
+
+    <div class="dialog-wrapper">
+    <div class="mask"></div>
+    <div class="dialog">
+        <div class="title">登录</div>
+        <div class="body">
+            <form class="login-info">
+                <li>
+                    <label >user name</label>
+                    <input name="username" type="text">
+                </li>
+                <li>
+                    <label >password</label>
+                    <input name="password" type="password">
+                </li>
+                <li class="operateWrapper">
+                    <button>登录</button>
+                    <button>取消</button>
+
+                </li>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+    let login = document.querySelector("#login");
+    let dialog = document.querySelector(".dialog-wrapper");
+    let progress = document.querySelector(".progress");
+    let mask = dialog.querySelector(".mask");
+    login.addEventListener("click", showDialog);
+
+    mask.addEventListener('click', hideDialog);
+
+    function showDialog(){
+        progress.classList.add("show");
+        setTimeout(()=>{
+             progress.classList.remove("show");
+             dialog.classList.add("show");
+        },1000);  
+    }
+    function hideDialog(){
+       dialog.classList.remove("show")
+    }
+
+</script>
+</html>
