@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+
+            <div class='col' id="middle"><div id="middle-wrap">middle</div></div>
+            <div class='col' id="left">left</div>
+            <div class='col' id='right'>right</div>
+        </div>
+
+    </body>
+    <style>
+        .col{
+            float: left;
+        }
+        #left{
+            width: 300px;
+            background:red;
+            margin-left: -100%;
+        }
+        #middle-wrap{
+            margin-left: 300px;
+            margin-right: 200px;
+            background:green;
+        }
+        #middle{
+                width: 100%;
+        }
+        #right{
+         
+            width: 200px;
+               margin-left: -200px;
+            background:blue;
+        }
+    </style>
+</html>

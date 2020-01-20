@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="bg">
+            <div id="a" class="blk">a</div>
+            <div id="b" class="blk">b</div>
+            <div id="c" class="blk">c</div>
+        </div>
+
+        <style>
+            #b{
+                height: 40px;
+                background: green;
+                float: left;
+                
+            }
+            .bg{
+                background-color: black;
+                /* overflow: auto; */
+            }
+            /* . */
+            .bg::after{
+                content:'s';
+                color: white;
+                clear:both;
+                display: block;
+                /* height: 0; */
+                visibility: hidden;
+                height:0;
+            }
+            .blk{
+                width: 100px;
+                height: 20px;
+                background: red;
+                margin:0 10px;
+                display: inline-block;
+            }
+        </style>
+    </body>
+</html>
