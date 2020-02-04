@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <style>
+        #rabbit{
+            height: 100px;
+            width: 100px;
+            background: url('./rabbit.jpg');
+            background-size: 300px 200px;
+            background-position: 0 0;
+            animation: runs 0.2s step-start infinite;
+            transition: left 1s linear;
+            left:0;
+            position: absolute;
+            /* steps(1); */
+        }
+        #rabbit:hover{
+            /* animation-play-state:running;
+             */
+             left: 200px;
+        }
+
+        @keyframes runs{
+            0%{
+                background-position: 0 0;
+                /* left: 0; */
+            }
+            17%{
+                background-position: 100px 0;
+            }
+            34%{
+                background-position:  200px 0;
+            }
+            50%{
+                background-position: 0 100px;
+            }
+            67%{
+                background-position: 100px 100px;
+            }
+            84%{
+                background-position:  200px 100px;
+                  /* left: 800px; */
+            }
+            100%{
+                 background-position: 0 0;
+                   /* left: 100px; */
+            }
+
+        }
+    
+    </style>
+    <body>
+        <div id="rabbit"></div>
+    </body>
+</html>

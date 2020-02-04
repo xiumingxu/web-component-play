@@ -1,17 +1,17 @@
-// function deepClone (source) {
-// 	// 仅限于{}
-// 	if (typeof source !== 'object')
-// 		// shallow copy
-// 		return Object.assign({}, source);
+function deepClone (source) {
+	// 仅限于{}
+	if (typeof source !== 'object')
+		// shallow copy
+		return Object.assign({}, source);
 
-// 	let target = Array.isArray(source) ? [] : {};
-// 	for (let prop in source) {
-// 		if (source.hasOwnProperty(prop)) {
-// 			target[prop] = deepClone(source[prop]);
-// 		}
-// 	}
-// 	return target;
-// }
+	let target = Array.isArray(source) ? [] : {};
+	for (let prop in source) {
+		if (source.hasOwnProperty(prop)) {
+			target[prop] = deepClone(source[prop]);
+		}
+	}
+	return target;
+}
 
 function deepClone2 (source) {
 	//     if(typeof source !== "object")
@@ -21,7 +21,7 @@ function deepClone2 (source) {
 	let target = Array.isArray(source) ? [] : {};
 	for (let prop in source) {
 		if (source.hasOwnProperty(prop)) {
-			if (typeof source[prop] === 'object' && source[prop] !== null) {
+			if (typeof source[prop] == 'object') {
 				target[prop] = deepClone2(source[prop]);
 			}
 			else {
@@ -31,9 +31,7 @@ function deepClone2 (source) {
 	}
 	return target;
 }
-
 var o1 = {
-	we   : null,
 	arr  : [ 1, 2, 3, [ 12 ] ],
 	obj  : {
 		key : 'value'

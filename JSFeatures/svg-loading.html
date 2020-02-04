@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #smile{
+            background-color: aqua;
+        }
+        svg{background:red;}
+        .mouth{
+            /* stroke: 2px solid black; */
+            stroke: black;
+            stroke-width: 10px;
+            stroke-linecap:round;
+            fill:none;
+            stroke-dasharray: 314px;
+            /* stroke-dashoffset: 300px; */
+            /* stroke-dasharray: 300px; */
+            /* stroke: ; */
+
+            animation: hehe 2s forwards;
+        }
+
+        @keyframes hehe {
+            0%{
+                stroke-dasharray: 314px;
+                stroke-dashoffset: -314px;
+            }
+              50%{
+                 stroke-dasharray: 300px;
+                 stroke-dashoffset: 0px;
+            }
+              /* 60%{
+                 stroke-dasharray: 314px;
+                 stroke-dashoffset: -14px;
+            } */
+            
+           100%{
+               stroke-dasharray: 157px;
+                /* stroke-dashoffset: 100px; */
+           }
+        }
+        .eye{
+            fill:none;
+            stroke:bisque;
+             stroke-width: 10;
+             /* dot need linecap */
+             stroke-linecap: round;
+
+            stroke-dasharray: 0, 235;
+            transform-origin: center;
+            transform: rotate(-45deg);
+            animation: eyeAni 2s ease-in-out forwards ;
+
+        }
+
+        @keyframes eyeAni {
+    40% {
+        stroke-dasharray: 0, 300;    /* 间距改为7/8 */
+    }
+    80%, 100% {
+        transform: rotate(-405deg);  /* 间距恢复为3/4 */
+        stroke-dasharray: 0, 235;
+    }
+}
+    </style>
+</head>
+<body>
+    <div id="smile">
+        <svg width="200" height="200">
+            <circle class="mouth" cx="100" cy="100" r="50"/>
+
+            <circle class="eye" cx="100" cy="100" r="50"></circle>
+
+
+
+        </svg>
+    </div>
+</body>
+</html>

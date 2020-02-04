@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+<div class='col' id="left">left</div>
+            <div class='col' id="middle"><div id="middle-wrap">middle</div></div>
+           
+            <div class='col' id='right'>right</div>
+        </div>
+
+    </body>
+    <style>
+
+        /* 
+        
+        .col{
+            margin: 40px;
+            background: green;
+      
+            width: 200px;
+            
+        }
+        .container{
+           
+            background: red;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+       #left{
+         
+
+            justify-self: flex-end;
+            flex-shrink: 0;
+        } 
+        */
+
+        /* grid */
+        .col{
+            margin: 40px;
+            background: green;
+            /* min-width: 200px; */
+            width: 200px;
+
+            
+        }
+        .container{
+           
+            background: red;
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-row-gap: 10px;
+            justify-content: center;
+            overflow: hidden;
+        }
+       #left{
+         
+            /* display: flex; */
+            justify-self: flex-end;
+            flex-shrink: 0;
+        }
+
+
+
+    </style>
+</html>

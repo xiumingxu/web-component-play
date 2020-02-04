@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scale=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* document.cloneNode */
+        .b{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            margin:10px 0;
+            text-align: center;
+            line-height: 100px;
+        }
+        #we{
+            will-change: transform;
+            position: absolute;
+            top:20px;
+            left: 20px;
+            background-color: red;
+            /* transform: width 2s; */
+            box-shadow: 0 1px 1px 1px rgba(0,0,0, .5);
+            /* blur: Optional. The blur radius. The higher the number, the more blurred the shadow will be	 */
+
+            animation: move 1s infinite ease-out;
+        }
+        @keyframes move{
+            0%{
+                width: 100px;
+                
+            }
+
+            100%{
+                width: 200px;
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="b" id="we">hehe</div>
+    <div class="b">hehe</div>
+    <div class="b">hehe</div>
+    <div class="b">hehe</div>
+    <div class="b">hehe</div>
+    <div class="b">hehe</div>
+    <div class="b">hehe</div>
+
+    
+</body>
+</html>

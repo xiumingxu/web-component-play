@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+
+    </head>
+    <body>
+        <div class="container">
+            <ul>
+                <li>hei</li>
+                <li>hei</li>
+                <li>hei</li>
+                <li>hei</li>
+                <li>hei</li>
+                <li>hei</li>
+            </ul>
+
+        </div>
+
+    </body>
+    <style>
+        li{
+            list-style: none;
+            height:30px;
+            position:relative;
+            /* text-align: center; */
+            /* background-color: aqua; */
+            line-height: 30px;
+            vertical-align:baseline;
+        }
+        .container li+li::before{
+            position: absolute;
+            top:-1px;
+            /* height:20px; */
+            left:0;
+            content: '';
+            width: 100%;
+
+            border-top: 1px solid #ddd;
+            transform: scaleY(0.5);
+
+        }
+        body{
+            background: black;
+             margin:0;
+            /* overflow: none; */
+               overflow: scroll;
+
+        }
+        /* //LAYOUT VIEWPORT  */
+        .container{
+           width: 400px;
+           height: 400px;
+
+            background-color: green;
+         
+            /* overflow: ; */
+        }
+
+       
+
+
+
+    </style>
+</html>
