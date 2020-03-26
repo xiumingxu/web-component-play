@@ -7,11 +7,35 @@
 </head>
 <body>
     <script>
-        navigator.serviceWorker.register('./sw.js', {scope:'/'}).then(registration=>{
-            console.log(registration);
-        }, error=>{
-            console.error(error);
-        });
+        // navigator.serviceWorker.register('./sw.js', {scope:'/'}).then(registration=>{
+        //     console.log(registration);
+        // }, error=>{
+        //     console.error(error);
+        // });
+    </script>
+    <script>
+// const xhr = new XMLHttpRequest();
+// xhr.responseType = "json";
+// xhr.onreadystatechange = ()=>{
+//     if(xhr.readyState === 4){
+//         //请求结束
+//         if(xhr.status >= 200 && xhr.status<300){
+//             //xhr.status是判断码
+//             res =  xhr.response
+//             console.log(res);
+//         }
+//     }
+// }
+// //地址 3para, 是否异步
+// xhr.open('GET', 'userInfo.json', true);
+// //不带参数
+// xhr.send(null);
+fetch('./userInfo.json',{
+    method: 'GET',
+    // body:是 post body
+    headers: new Headers(),
+    credentials: 'include'
+}).then(response=>response.json()).then(info=>console.log(info));
     </script>
     
 </body>
