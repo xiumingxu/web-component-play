@@ -3,8 +3,13 @@
 
 //只能恩 service worker 的监听逻辑: install, actvite, fetch
 self.addEventListener('install', event => {
-  项目列表应该自动构建, 而不是人工构建;
-  event.waitUtil(cached);
+  //在新的 service worker 第一次安装时,
+  // 在版本不一样重新安装时
+
+  //是一个callback, 会推迟 activate 的执行
+  event.waitUntil(new Promise(resolve => setTimeout(resolve, 3000)));
+  // self.skipWaiting: 强势执行新的 serviceworker
+  event.waitUntil(self.skipWaiting());
 });
 self.addEventListener('activate', event => {
   console.log('activate', event);
@@ -14,16 +19,4 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   // catch api 拿到本地
   console.log('fetch', event);
-  event.responseWith(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.match(event.request).then(response => {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request).then(response => {
-          cache.put(event.request, response.clone());
-        });
-      });
-    })
-  );
 });
