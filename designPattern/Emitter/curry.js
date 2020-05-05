@@ -22,7 +22,4 @@ const _ = {
         return null;
     }
 };
-// var xiaomingCountByDays = _.partial(multi, 10);
-// var xiaoliangTotalWithOthers = _.partial(sum, 20);
-// var totalByDay = _.compose(xiaoliangTotalWithOthers, xiaomingCountByDays);
-// var totalCount = totalByDay(5);
+// 
