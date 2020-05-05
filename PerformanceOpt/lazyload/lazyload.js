@@ -1,4 +1,5 @@
 // var viewHeight = document.documentElement.clientHeight // 可视区域的高度
+//clientHeight offHeight
 
 // function lazyload () {
 //   var eles = document.querySelectorAll('img[data-original][lazyload]')
@@ -26,4 +27,4 @@
 
 // document.addEventListener('scroll', lazyload)
 
-$('img[data-original][lazyload]').lazyload()
+$('img[data-original][lazyload]').lazyload();
