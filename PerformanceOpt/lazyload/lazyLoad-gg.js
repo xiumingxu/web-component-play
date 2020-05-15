@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         else {
             if (active === false) active = true;
-            setTimeout(function () {
+            setTimeout(function () {c
                 lazyImgs.forEach(function (img) {
                     //innerHeight 上面的已经进入视野了
                     if (
