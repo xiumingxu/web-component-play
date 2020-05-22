@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         img.srcset = img.dataset.srcset;
                         img.classList.remove('lazy');
                         //这么恶心呢
-                        lazyImageObserver.unobserve(img);
+                        observer.unobserve(img);
                     }
                 });
             });
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         else {
             if (active === false) active = true;
-            setTimeout(function () {c
+            setTimeout(function () {
                 lazyImgs.forEach(function (img) {
                     //innerHeight 上面的已经进入视野了
                     if (
