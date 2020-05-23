@@ -2,13 +2,12 @@ import Snake, { NORTH, WEST, EAST, SOUTH } from './snake.js';
 
 let state = Snake.initialState();
 
-
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 // map canvas to state pixels
-const x = c => Math.round(c * canvas.width/state.cols);
-const y = c => Math.round(c * canvas.height/state.rows);
+const x = c => Math.round(c * canvas.width / state.cols);
+const y = c => Math.round(c * canvas.height / state.rows);
 
 const draw = ()=>{
     //clear
@@ -32,7 +31,8 @@ const draw = ()=>{
 }
 // Game loop update
 const step = t1 => t2 => {
-	if (t2 - t1 > 100) {
+
+	if (t2 - t1 > 200) {
 		//new state
 		state = Snake.next(state);
 		// draw the global state to the canvas
