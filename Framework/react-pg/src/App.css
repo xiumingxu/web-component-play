@@ -1,0 +1,13 @@
+.App {
+  background-color: #aaa;
+  height: 600px;
+  width: 600px;
+}
+
+.dot{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+}

@@ -25,5 +25,8 @@ export const rnd       = min => max => Math.floor(Math.random() * max) + min
 //o1 和 o2 会互相覆盖
 export const merge     = o1 => o2 => Object.assign({}, o1, o2)
 
+//pipe
+export const pipe = (...fns) => x => [...fns].reduce((acc, f) => f(acc), x)
+
 // concalculate
 export const mod = x => y => ((y % x) + x) % x // http://bit.ly/2oF4mQ7

@@ -48,7 +48,7 @@ const initialState = () => ({
 
 // Booleans
 const willEat = state => pointEq(nextHead(state))(state.apple)
-const willCrash    = state => state.snake.find(pointEq(nextHead(state)))
+const willCrash    = state => state.snake.find(pointEq(nextHead(state))) || nextHead(state).x === state.cols-1 || nextHead(state).y === state.rows-1
 // const willCrash    = state =>{
 //     const {moves, snake, cols, rows} = state
 //     if(snake.length === 0)

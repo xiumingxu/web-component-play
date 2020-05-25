@@ -32,7 +32,7 @@ const draw = ()=>{
 // Game loop update
 const step = t1 => t2 => {
 
-	if (t2 - t1 > 200) {
+	if (t2 - t1 > 60) {
 		//new state
 		state = Snake.next(state);
 		// draw the global state to the canvas
