@@ -1,0 +1,25 @@
+{
+    "presets": [
+        [
+        "@babel/preset-env"
+        ,
+            {
+               // 其实也是引入了polyfill
+                "useBuiltIns": "usage",
+                "corejs": 3
+            }
+        ]
+    ],
+    "plugins": [[
+        "@babel/plugin-transform-runtime",
+        {
+            "absoluteRuntime":false,
+            "corejs":3, /*一定是3*/
+            "helpers": true,
+            "regenerator": true,
+            "useESModules": false
+
+        }
+    ]
+    ]
+}
