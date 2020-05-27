@@ -3,10 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 import Test from './Test';
 
+
+const LazyImage = React.lazy(() => import('./LazyImage'))
+
 function App () {
     return (
         <div className="App">
             <Test />
+            <React.Suspense fallback="loading">
+                <LazyImage/>
+            </React.Suspense>
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
