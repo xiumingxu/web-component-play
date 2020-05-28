@@ -9,11 +9,14 @@ function flat (arr) {
 	for (let i of arr) {
 		if (Array.isArray(i)) {
 			i = flat(i);
+			// i = arguments.callee(i)
 		}
 		res = res.concat(i);
 	}
 	return res;
 }
+let res = [1, 2, 3, 4, [1, 2, 3, [1, 2, 3, [1, 2, 3]]], 5, "strinsg", { name: "弹铁蛋同学" }];
+console.log(flat(res))
 
 function flat2 (arr) {
 	const isDeep = arr.some((item) => item instanceof Array);
@@ -51,6 +54,11 @@ function deepClone (source) {
 
 	return res;
 }
-// console.log(flat2(arr));
+
+let flat3 = (arr) => arr.reduce((accumulator, item)=>{
+	if (Array.isArray(item)) return accumulator.concat(flat3(item));
+	else return accumulator.concat(item);
+},[])
+console.log(flat3(res));
 //静态方法 isArray
 // console.log(arr.isArray());
