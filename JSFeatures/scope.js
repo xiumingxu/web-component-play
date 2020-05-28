@@ -15,12 +15,12 @@
 // }
 
 function foo (a, b) {
-    console.log(b);
-    return {
-        foo : function (c) {
-            return foo(c, a); //重点是执行了
-        }
-    };
+	console.log(b);
+	return {
+		foo : function (c) {
+			return foo(c, a); //重点是执行了
+		}
+	};
 }
 
 var func1 = foo(0);
@@ -36,3 +36,34 @@ var func6 = func5.foo(3);
 var func3 = foo(0).foo(1);
 func3.foo(2);
 func3.foo(3);
+
+var scope = 'global scope';
+function checkscope () {
+	var scope = 'local scope';
+	function f () {
+		return scope;
+	}
+	return f();
+}
+checkscope();
+
+// difference
+var scope = 'global scope';
+function checkscope () {
+	var scope = 'local scope';
+	function f () {
+		return scope;
+	}
+	return f;
+}
+checkscope()();
+
+// execution context
+function foo () {
+	console.log('foo1');
+}
+foo(); // foo2
+function foo () {
+	console.log('foo2');
+}
+foo(); // foo2
