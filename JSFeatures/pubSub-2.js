@@ -4,7 +4,7 @@ const PubProto = ()=>{
     let sublist = {
     };
     return {
-        subscribe: function(channel, subscriber){
+        subscribe(channel, subscriber){
             if (!sublist[channel]){
                 sublist[channel] = [];
             }
@@ -15,7 +15,7 @@ const PubProto = ()=>{
                 sublist[channel].push(subscriber);
             }
         },
-        notify: function(channel){
+        notify(channel){/* 不写 function 就是成员变量了*/
             if(sublist[channel])
                 for (const subscriber of sublist[channel]){
                     subscriber();
