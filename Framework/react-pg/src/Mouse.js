@@ -1,8 +1,7 @@
 import React from 'react';
 
-const withMouse = (Component) =>{
+export const withMouse = (Component) =>{
     class Mouse extends React.Component{
-        
         constructor(props){
             super(props);
             this.state = {
