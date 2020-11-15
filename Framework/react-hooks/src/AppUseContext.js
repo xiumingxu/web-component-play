@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState,createContext,useContext } from 'react';
 import './App.css';
 
-// 要声明 context
+// 要声明 context 还会要有createConext
 const CountContext = createContext();
 
 class Bar extends Component {

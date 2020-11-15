@@ -1,5 +1,5 @@
 // var viewHeight = document.documentElement.clientHeight // 可视区域的高度
-//clientHeight offHeight
+//clientHeight offsetHeight
 
 // function lazyload () {
 //   var eles = document.querySelectorAll('img[data-original][lazyload]')

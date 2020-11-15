@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState,createContext } from 'react';
 import './App.css';
 
-// 要声明 context
+// 要声明 context 也是要在外面
 const CountContext = createContext();
 class Foo extends Component {
   render () {

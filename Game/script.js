@@ -2,7 +2,7 @@
  * @Author: xiuming.x 
  * @Date: 2019-12-01 11:32:12 
  * @Last Modified by: xiuming.x
- * @Last Modified time: 2019-12-01 12:26:42
+ * @Last Modified time: 2020-11-17 14:22:05
  */
 
 alert('something');
@@ -28,9 +28,9 @@ window.addEventListener(resizeEvt, recalc, false);
 doc.addEventListener('DOMContentLoaded', recalc, false);
 
 /**
-         * 下拉选择页面
-         * @type {[type]}
-         */
+ * 下拉选择页面
+ * @type {[type]}
+ */
 var page = document.querySelector('#page');
 
 //层级
