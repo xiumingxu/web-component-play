@@ -39,7 +39,6 @@ export const Autocomplete: FC<AutocompleteProps>= (props
     const [selectedOption, setSelectedOption] = useState<OptionType>()
 
     const handleChange = useCallback((_: ChangeEvent)=>{
-        console.log("triggered")
         const results = fetchSuggestions((inputValue.current as HTMLInputElement).value)
         if (results instanceof Promise){
             results.then(options=> { setOptions(options)})
@@ -49,17 +48,15 @@ export const Autocomplete: FC<AutocompleteProps>= (props
     },[])
 
     //怎么写不用
-    const handleSelect = useCallback((idx)=>(event: React.MouseEvent<HTMLLIElement> )=>{
-        const curOption = options[idx]
-        setSelectedOption(curOption)
+    const handleSelect = useCallback((item: OptionType )=>{
+        setSelectedOption(item)
         setOptions([])
-        onSelect(curOption)
-
-        inputValue.current!.value = curOption.value
+        onSelect(item)
+        inputValue.current!.value = item.value //不会trigger onChange
     },[options, inputValue])
 
     return <>
         <input ref={inputValue} onChange={handleChange}/>
-        {options.length !==0 && options.map((option, idx)=>(<li key={idx} onClick={handleSelect(idx)}>{option.value}</li>))}
+        {options.length !==0 && options.map((option, idx)=>(<li key={idx} onClick={()=>(handleSelect(option))}>{option.value}</li>))}
     </>
 }
