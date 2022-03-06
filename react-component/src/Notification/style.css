@@ -1,0 +1,39 @@
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.notification.slideIn {
+  animation-name: slideIn;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+.notification {
+  transition: transform 0.3s ease-out;
+}
+
+.notification.slideOut {
+  transform: translateX(150%);
+  flex: 0;
+}
+
+.container {
+  overflow: hidden;
+  max-height: 200px;
+  transition: max-height 0.3s ease-out;
+}
+
+.container:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.container.shrink {
+  max-height: 0;
+}

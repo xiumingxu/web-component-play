@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import './style.css'
 import { Notifications as Notification } from '.';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

@@ -1,5 +1,7 @@
 import React, {FC, useState} from "react";
 import {createPortal} from "react-dom";
+import cn from 'classnames'
+import styles from './style.css'
 import styled, {keyframes} from 'styled-components'
 import {uuidv4} from "msw/lib/types/utils/internal/uuidv4";
 
@@ -13,6 +15,7 @@ export function createContainer() {
 
     element = document.createElement("div");
     element.setAttribute("id", portalId);
+    element.classList.add('container')
     element.style.position = 'fixed'
     element.style.top = '16px'
     element.style.right = '16px'
@@ -35,14 +38,34 @@ const Notification: FC<NoticationProps> =  (props) => {
     const {  note, children, onDelete} = props
     const [isClosing, setIsClosing] = React.useState(false);
 
+    React.useEffect(() => {
+        if (isClosing) {
+            const timeoutId = setTimeout(()=>onDelete(note), timeToDelete);
+
+            return () => {
+                clearTimeout(timeoutId);
+            };
+        }
+    }, [isClosing, onDelete]);
+
     return createPortal(
-        <div>
+        <div className={cn(['container', { 'shrink': isClosing }])}>
+        <div
+            className={cn([
+                'notification',
+                { slideIn: !isClosing },
+                { slideOut: isClosing },
+            ])}
+            >
+
             {children}
-            <button  onClick={()=>onDelete(note)}>
+            <button  onClick={()=>setIsClosing(true)}>
                 Close
             </button>
-        </div>,
+        </div></div>
+            ,
         container
+
     );
 }
 
