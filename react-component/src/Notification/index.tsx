@@ -31,12 +31,35 @@ const container = createContainer();
 interface NoticationProps{
     note: NotificationContent
     onDelete: (n: NotificationContent) => any
+    autoClose?: boolean
+
 }
 let timeToDelete = 300;
+let timeToClose = 6000;
 
 const Notification: FC<NoticationProps> =  (props) => {
-    const {  note, children, onDelete} = props
+    const {  note, children, onDelete, autoClose = true} = props
     const [isClosing, setIsClosing] = React.useState(false);
+    const [timeLeft, setTimeLeft] = React.useState(timeToClose);
+
+    React.useEffect(() => {
+        if (autoClose) {
+            const timeoutId = setTimeout(() => setIsClosing(true), timeToClose);
+            return () => {
+                clearTimeout(timeoutId);
+            };
+        }
+    }, [autoClose]);
+
+    React.useEffect(()=>{
+        const ins = setInterval(()=>{
+            setTimeLeft((prevTimeLeft)=>prevTimeLeft-1000)
+
+        }, 1000)
+        return ()=>{
+            clearInterval(ins)
+        }
+    },[])
 
     React.useEffect(() => {
         if (isClosing) {
@@ -57,7 +80,7 @@ const Notification: FC<NoticationProps> =  (props) => {
                 { slideOut: isClosing },
             ])}
             >
-
+            <span>timeLeft: {timeLeft}</span>
             {children}
             <button  onClick={()=>setIsClosing(true)}>
                 Close
