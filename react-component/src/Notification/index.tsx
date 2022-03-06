@@ -1,103 +1,99 @@
-import React, {useRef, FC, useCallback, ChangeEvent, ChangeEventHandler, useState, useEffect} from 'react';
-import * as uuid from 'uuid'
-//Test data
-// https://www.youtube.com/watch?v=KYKmqeU6lOI&ab_channel=LetsCode
+import React, {FC, useState} from "react";
+import {createPortal} from "react-dom";
+import styled, {keyframes} from 'styled-components'
+import {uuidv4} from "msw/lib/types/utils/internal/uuidv4";
 
-//好难
-interface TestType {
-    value: string
-    id: number
-    other: string
+export function createContainer() {
+    const portalId = "notifyContainer";
+    let element = document.getElementById(portalId);
+
+    if (element) {
+        return element;
+    }
+
+    element = document.createElement("div");
+    element.setAttribute("id", portalId);
+    element.style.position = 'fixed'
+    element.style.top = '16px'
+    element.style.right = '16px'
+    document.body.appendChild(element);
+
+    return element;
 }
 
 
-interface ObjectWithValue {
-    value: string;
+
+const container = createContainer();
+
+interface NoticationProps{
+    note: NotificationContent
+    onDelete: (n: NotificationContent) => any
+}
+let timeToDelete = 300;
+
+const Notification: FC<NoticationProps> =  (props) => {
+    const {  note, children, onDelete} = props
+    const [isClosing, setIsClosing] = React.useState(false);
+
+    return createPortal(
+        <div>
+            {children}
+            <button  onClick={()=>onDelete(note)}>
+                Close
+            </button>
+        </div>,
+        container
+    );
 }
 
-type OptionType<T={}> = ObjectWithValue & T
-
-interface IdProps {
-    id: string
+enum Color {
+    'info',
+     'success',
+     'warning',
+     'error',
 }
-type DataSource<T={}> = T & IdProps
-
-interface NotificationProps extends DataSource{ //并没有对interface进行抽象
-    value: string;
-    onClose: (noteId: string)=>void;
-    duration?: number
+interface NotificationContent {
+    id: string,
+    message: string,
+    color: Color
 }
-export const Notice: FC<NotificationProps>= (props
-)=>{
-    // const key: React.Key //    type Key = string | number;
-    const {value, id, onClose} = props
-    const [timer, setTimer] = useState<NodeJS.Timeout>()
-    const [timeLeft, setTimeleft] = useState<number>(6000)
+export const  Notifications: FC = (props) =>{
+    const [notifications, setNotifications] = useState<NotificationContent[]>([]);
 
-    useEffect(()=>{
-        let timeout = setTimeout(()=>[
-            onClose(id)
-        ], 6000)
-        let timeInterval = setInterval(()=>{
-            setTimeleft(prevState => prevState-1000)
-        }, 1000)
-        setTimer(timeout);
-    },[])
 
-    useEffect(()=>{
-        if(timer){
-            console.log(timer)
-        }
-    })
+    const createNotification = (color: Color) => {
+        const id = String(notifications.length)
+        const newnote: NotificationContent = {color, id, message: id +'hehe'}
+        setNotifications([...notifications,newnote ]);
+    }
 
-    const handleClose = useCallback(()=>{
-        timer && clearTimeout(timer)
-        onClose(id)
-    },[])
+    const handleDelete  = (note: NotificationContent)=>{
+        setNotifications(notifications.filter(n => n.id !== note.id))
 
-    return <>
-        <span>{timeLeft} | </span>
-        <span>{value}</span>
-        <button onClick={handleClose}>Close</button>
-    </>
+    }
+
+    return (
+        <div className="App">
+            <button onClick={() => createNotification(Color.info)}>Info</button>
+            <button onClick={() => createNotification(Color.success)}>Success</button>
+            <button onClick={() => createNotification(Color.warning)}>Warning</button>
+            <button onClick={() => createNotification(Color.error)}>Error</button>
+            {notifications.map((note ) => (
+                <Notification key={note.id} note ={note} onDelete={handleDelete}>
+                    notification!
+                </Notification>
+            ))}
+        </div>
+    );
 }
-interface Note {
-    id: string
-    value: string
-}
-//timer 和 setStack 怎样联动
-export const Notification = ()=>{
-    // const stack = useRef<Note[]>([])
-    const [stack, setStack] = useState<Note[]>([])
-    // trigger notification
-    //setStack在timer里没有被渲染
 
-    // Similar to componentDidMount and componentDidUpdate:
-    // useEffect(() => {
-    //     // Update the document title using the browser API
-    //     document.title = `You clicked ${count} times`;
-    // });
 
-    useEffect(()=>{
-        let interval = setInterval(()=>{
-        const notification: Note = {
-            id: uuid.v4(),
-            value: String(Date())
-        };
-        setStack([...stack, notification])
-            // stack.current.push(notification)
-        }, 1000)
-
-        return ()=>{
-            clearInterval(interval)
-        }
-    })
-    // notify 的逻辑, 外面加个add
-    const handleClose = useCallback( (id)=>{
-        // 终于拿到最新的stack了 !!!
-        setStack((prevStack)=> prevStack.filter(n=>n.id !== id))
-    },[])
-    return <>{stack.map(n=><li><Notice key={n.id} {...n} onClose={handleClose}/></li>)}</>
-
-}
+// const slideIn = keyframes`
+//     from {
+//       transform: translateX(100%);
+//     }
+//     to {
+//       transform: translateX(0%);
+//     }
+// `
 
